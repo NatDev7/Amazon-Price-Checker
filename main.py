@@ -58,3 +58,12 @@ def sendMail(title, URL, original, new):
     print("Sent email")
 
     server.quit()
+    
+while True:
+    #Make sure the program only sends email for prices once every 24 hours
+    print("============================================================================================")
+    for i in items:
+        URL = i[0]
+        origPrice = i[1]
+        checkPrice()
+    time.sleep(86400)
