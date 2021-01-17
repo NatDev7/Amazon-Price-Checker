@@ -18,3 +18,16 @@ def checkPrice():
     print("Checking price for " + title.strip())
     price = soup.find(id="priceblock_ourprice").get_text()
 
+    if(origPrice > 100):
+    
+        conv_price = float(price[1:7])
+    else:
+        conv_price = float(price[1:6])
+
+    print("Original Price {}\n Current Price: {}".format(origPrice, conv_price))
+
+    if(conv_price < origPrice):
+        print("Price dropped!")
+        sendMail(title.strip(), URL, origPrice, conv_price)
+    else:
+        print("No difference")
