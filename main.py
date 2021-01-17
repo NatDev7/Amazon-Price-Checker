@@ -41,9 +41,20 @@ def sendMail(title, URL, original, new):
     server.ehlo()
 
     password = "PASSWORD HERE"
-    server.login('', password) #TYPE IN GMAIL BETWEEN QUOTES
+    email = "TYPE IN EMAIL HERE"
+    server.login(email, password) 
 
     subject = f"Price dropped for {title}"
 
     body = f"Old Price: {original}\nNew Price: {new}\nDifference: {original - new}\n{URL}"
 
+    msg = f"Subject: {subject}\n\n{body}"
+
+    server.sendmail(
+        email,
+        email,
+        msg
+    )
+    print("Sent email")
+
+    server.quit()
