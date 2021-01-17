@@ -60,10 +60,10 @@ def sendMail(title, URL, original, new):
     server.quit()
     
 while True:
-    #Make sure the program only sends email for prices once every 24 hours
+    #Program changed to only run every 24 hours/ 86400 seconds
     print("============================================================================================")
     for i in items:
         URL = i[0]
         origPrice = i[1]
         checkPrice()
-    time.sleep(86400)
+    time.sleep(86400) #change the frequency of emails here
