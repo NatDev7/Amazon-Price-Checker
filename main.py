@@ -31,3 +31,7 @@ def checkPrice():
         sendMail(title.strip(), URL, origPrice, conv_price)
     else:
         print("No difference")
+
+
+def sendMail(title, URL, original, new):
+    #function to send the email alert of updated price
