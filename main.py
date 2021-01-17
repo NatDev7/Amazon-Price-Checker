@@ -35,3 +35,15 @@ def checkPrice():
 
 def sendMail(title, URL, original, new):
     #function to send the email alert of updated price
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
+    server.starttls()
+    server.ehlo()
+
+    password = "PASSWORD HERE"
+    server.login('', password) #TYPE IN GMAIL BETWEEN QUOTES
+
+    subject = f"Price dropped for {title}"
+
+    body = f"Old Price: {original}\nNew Price: {new}\nDifference: {original - new}\n{URL}"
+
